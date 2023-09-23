@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{%d %-5level %M() @%L - %msg%n}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green bold, DEBUG=blue bold, TRACE=blue}"/>
+        </Console>
+        <File name="LogToFile" fileName="src/test-output/logs/Results-${date:yyyy-MM-dd}.log" append="false">
+            <PatternLayout pattern="%sn %d [%-6p] – %m%n"/>
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="NEUTRAL" onMismatch="DENY"/>
+                <!-- This is only needed if ONLY error events are to be logged -->
+                <ThresholdFilter level="FATAL" onMatch="DENY" onMismatch="ACCEPT"/>
+            </Filters>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="backend.steps.BaseSteps" level="trace" additivity="false">
+            <AppenderRef ref="LogToConsole"/>
+            <!--            <AppenderRef ref="LogToFile"/>-->
+        </Logger>
+        <Logger name="frontend.steps.BaseSteps" level="trace" additivity="false">
+            <AppenderRef ref="LogToConsole"/>
+        </Logger>
+        <Root level="error">
+            <!--            <AppenderRef ref="LogToFile"/>-->
+            <AppenderRef ref="LogToConsole"/>
+        </Root>
+    </Loggers>
+</Configuration>

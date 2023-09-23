@@ -14,8 +14,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.code.style>official</kotlin.code.style>
-        <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
+        <kotlin.compiler.jvmTarget>17</kotlin.compiler.jvmTarget>
         <serenity.version>4.0.12</serenity.version>
+        <parallel.tests>3</parallel.tests>
     </properties>
 
     <repositories>
@@ -25,8 +26,32 @@
         </repository>
     </repositories>
 
+    <profiles>
+        <profile>
+            <id>useTheForks</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>3.1.2</version>
+                        <configuration>
+                            <includes>
+                                <include>**/AllTestsRunner*.java</include>
+                            </includes>
+                            <systemPropertyVariables>
+                                <serenity.fork.count>0${parallel.tests}</serenity.fork.count>
+                                <!--suppress UnresolvedMavenProperty -->
+                                <serenity.fork.number>0${surefire.forkNumber}</serenity.fork.number>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <build>
-        <sourceDirectory>src/main/kotlin</sourceDirectory>
+        <sourceDirectory>src/test/kotlin</sourceDirectory>
         <testSourceDirectory>src/test/kotlin</testSourceDirectory>
         <plugins>
             <plugin>
@@ -52,11 +77,16 @@
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>3.1.2</version>
             </plugin>
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>3.1.2</version>
+                <configuration>
+                    <includes>
+                        <include>**/AllTestsRunner*</include>
+                    </includes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -66,19 +96,18 @@
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test-junit5</artifactId>
             <version>1.9.0</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.10.0</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
             <version>1.9.0</version>
         </dependency>
+        <!--  Serenity dependencies  -->
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-junit</artifactId>
@@ -94,6 +123,23 @@
             <artifactId>serenity-rest-assured</artifactId>
             <version>${serenity.version}</version>
         </dependency>
+        <!--  Other dependencies  -->
+        <dependency>
+            <groupId>org.jeasy</groupId>
+            <artifactId>easy-random-core</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+
 
 
     </dependencies>
