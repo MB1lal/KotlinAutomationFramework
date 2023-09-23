@@ -2,8 +2,8 @@ package core
 
 class EnvSerenity : Config() {
     //bootstrap
-    val basePetURI = environmentVariables.getProperty("baseURI") + "pet"
-    val basePetStoreURI = environmentVariables.getProperty("baseURI") + "store"
+    val basePetUri = environmentVariables.getProperty("baseURI") + "pet"
+    val basePetStoreUri = environmentVariables.getProperty("baseURI") + "store"
     val petFileBodiesRoot = environmentVariables.getProperty("petFileBodiesRoot")
-    val userURI = environmentVariables.getProperty("baseURI") + "user"
+    val userUri = environmentVariables.getProperty("baseURI") + "user"
 }
