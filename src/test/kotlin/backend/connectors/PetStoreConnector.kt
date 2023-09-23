@@ -8,8 +8,10 @@ import net.serenitybdd.rest.SerenityRest
 
 class PetStoreConnector {
 
+    private val baseUri = EnvSerenity().basePetStoreUri
+
     private fun baseRequest(): RequestSpecification = SerenityRest.with()
-        .contentType(ContentType.JSON).baseUri(EnvSerenity().basePetStoreURI)
+        .contentType(ContentType.JSON).baseUri(baseUri)
 
     fun placingAnOrder(body: String) {
         baseRequest()
