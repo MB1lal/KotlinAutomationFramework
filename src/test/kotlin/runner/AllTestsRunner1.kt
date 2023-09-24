@@ -6,11 +6,11 @@ import org.junit.runner.RunWith
 
 @RunWith(CucumberWithSerenity::class)
 @CucumberOptions(
-    features = ["src/test/resources/features"],
+    features = ["src/test/resources/features/"],
     tags = "@test and not @ignore",
-    glue = ["backend/steps"],
-    stepNotifications = true
-
+    glue = [""],
+    plugin = ["json:target/cucumber-report/cucumber.json"],
+    stepNotifications = false
 )
 class AllTestsRunner1 {
 }
