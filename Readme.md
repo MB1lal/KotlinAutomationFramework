@@ -1,4 +1,6 @@
-**Kotlin Automation Framework**
+**Kotlin Automation Framework** [WIP]
+![image](https://github.com/MB1lal/KotlinAutomationFramework/assets/54260933/8a2c3647-898b-4ff6-95c4-0dcc1398f339)
+
 
 **Overview**
 The Kotlin Automation Framework is a versatile automation solution designed to test User Interfaces (UI), Application Programming Interfaces (APIs), and Mobile Applications. It is built using the Kotlin programming language and leverages popular testing libraries and tools to ensure reliable and efficient test automation.
@@ -30,7 +32,7 @@ Appium (for mobile testing, if applicable)
 WebDriver (for web UI testing, if applicable)
 
 **Clone the Repository**: Clone this repository to your local machine using Git:
-git clone https://github.com/your/repo.git
+git clone 
 
 **Configure Environment:** Set up the necessary environment variables and configuration files for your specific test environment, including API endpoints, mobile device configurations, and browser settings.
 
