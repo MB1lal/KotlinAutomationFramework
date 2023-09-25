@@ -1,4 +1,4 @@
-package backend.models
+package backend.models.store
 
 import lombok.Data
 import utils.TimestampGenerator
