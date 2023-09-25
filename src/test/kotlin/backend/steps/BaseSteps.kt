@@ -31,13 +31,14 @@ abstract class BaseSteps {
     private val userConnector = UserConnector()
     private val petConnector = PetConnector()
 
-    val logger: Logger = LogManager.getLogger(BaseSteps::class.java)
+    protected val logger: Logger = LogManager.getLogger(BaseSteps::class.java)
 
     @Throws(IOException::class)
     fun <T> getStaticBody(tClass: Class<T>?, path: String?): T {
         return objectMapper.readValue(path?.let { File(it) }, tClass)
     }
 
+    @Suppress("unused")
     var random = EasyRandom(
         EasyRandomParameters()
             .seed(Random.nextLong()) //sensible string length
@@ -69,7 +70,7 @@ abstract class BaseSteps {
 
     fun fetchPetStoreOrderDetails(orderId: Int) {
         Serenity.setSessionVariable(SharedStateConstants.BACKEND.PET_STORE.PET_STORE_RESPONSE).to(petStoreConnector.fetchOrder(orderId))
-        logger.info("Order fetched: " + SharedStateConstants.BACKEND.PET_STORE.PET_STORE_RESPONSE.toString() )
+        logger.info("Order fetched: $orderId")
     }
 
     fun fetchDeletedOrder(orderId: Int) {
@@ -87,26 +88,31 @@ abstract class BaseSteps {
         Serenity.setSessionVariable(BACKEND.PET_ID).to(petModel.id)
         Serenity.setSessionVariable(PET.PET_STATUS).to(petModel.status)
         petConnector.addNewPet(petModel.toJson())
+        logger.info("Adding new pet.")
     }
 
     fun getPetById(petId: Long) {
-        Serenity.setSessionVariable(PET.PET_RESPONSE).to<Response>(
+        Serenity.setSessionVariable(PET.PET_RESPONSE).to(
             petConnector.getPetById(petId.toInt())
         )
+        logger.info("Fetched pet: " + petId)
     }
 
     fun getPetStatus(status: List<String?>?) {
         Serenity.setSessionVariable(PET.PET_RESPONSE).to<Response>(
             petConnector.getPetStatus(status)
         )
+        logger.info("Fetched pet status")
     }
 
     fun deletePetWithId(petId: Long) {
         petConnector.deletePetWithId(petId.toInt())
+        logger.info("Pet deleted: $petId")
     }
 
     fun updatePetDetails(attribute: String?, attributeValue: String?) {
         petConnector.updatePetDetails(attribute, attributeValue)
+        logger.info("Pet details updated")
     }
 
     fun createUserPayLoad(): UserModel {
@@ -128,6 +134,7 @@ abstract class BaseSteps {
         Serenity.setSessionVariable(USERS.LAST_NAME).to(userModel.lastName)
         Serenity.setSessionVariable(USERS.STATUS).to(userModel.userStatus)
         Serenity.setSessionVariable(USERS.USER_ID).to(userModel.id)
+        logger.info("User payload created.")
         return userModel
     }
 
@@ -135,19 +142,23 @@ abstract class BaseSteps {
         Serenity.setSessionVariable(USERS.USER_RESPONSE).to(
             userConnector.getUser(Serenity.sessionVariableCalled(USERS.USERNAME))
         )
+        logger.info("Verified user exists.")
     }
 
     fun loginUser() {
+        logger.info("User is logging in.")
         Serenity.setSessionVariable(USERS.USER_RESPONSE).to(
             userConnector.loginExistingUser(
                 Serenity.sessionVariableCalled(USERS.USERNAME),
                 Serenity.sessionVariableCalled(USERS.PASSWORD)
             )
         )
+        logger.info("User is logged in.")
     }
 
     fun logoutUser() {
         userConnector.logoutUser()
+        logger.info("User is logged out.")
     }
 
 }

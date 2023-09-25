@@ -5,5 +5,5 @@ class EnvSerenity : Config() {
     val basePetUri = environmentVariables.getProperty("baseURI") + "pet"
     val basePetStoreUri = environmentVariables.getProperty("baseURI") + "store"
     val petFileBodiesRoot = environmentVariables.getProperty("petFileBodiesRoot")
-    val userUri = environmentVariables.getProperty("baseURI") + "user"
+    val baseUserUri = environmentVariables.getProperty("baseURI") + "user"
 }

@@ -7,7 +7,7 @@ import io.restassured.specification.RequestSpecification
 import net.serenitybdd.rest.SerenityRest
 
 class UserConnector {
-    private var baseUri = EnvSerenity().userUri
+    private var baseUri = EnvSerenity().baseUserUri
     private fun baseRequest(): RequestSpecification {
         return SerenityRest
             .with()
