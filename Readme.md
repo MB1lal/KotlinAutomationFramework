@@ -1,4 +1,4 @@
-**Kotlin Automation Framework** [WIP]
+***Kotlin Automation Framework***
 ![image](https://github.com/MB1lal/KotlinAutomationFramework/assets/54260933/8a2c3647-898b-4ff6-95c4-0dcc1398f339)
 
 
@@ -32,7 +32,7 @@ Appium (for mobile testing, if applicable)
 WebDriver (for web UI testing, if applicable)
 
 **Clone the Repository**: Clone this repository to your local machine using Git:
-git clone 
+``` git clone https://github.com/MB1lal/KotlinAutomationFramework.git``` 
 
 **Configure Environment:** Set up the necessary environment variables and configuration files for your specific test environment, including API endpoints, mobile device configurations, and browser settings.
 
@@ -40,7 +40,7 @@ git clone
 
 **Run Tests:** Execute tests using Maven or your preferred build tool:
 
-mvn clean test
+```mvn clean test -Dtest=runner.AllTestsRunner1```
 View Reports: Test reports will be generated in the target/site/serenity directory. Open the HTML report in your web browser to view test results.
 
 Contributing
