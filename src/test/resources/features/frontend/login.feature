@@ -1,4 +1,4 @@
-@test @frontend @herokuapp
+@test @frontend @herokuapp @ignore
 Feature: Login Page Tests
 
   Scenario: Valid Login

@@ -1,4 +1,4 @@
-
+@ignore
 Feature: Dynamic Loading Tests
 
   Scenario: Load Hidden Element

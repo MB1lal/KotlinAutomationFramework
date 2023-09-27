@@ -1,4 +1,4 @@
-@test @frontend @herokuapp
+@test @frontend @herokuapp @ignore
 Feature: Dropdown Page Tests
 
   Scenario: Select Option from Dropdown

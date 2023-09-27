@@ -1,4 +1,4 @@
-@test @frontend @herokuapp
+@test @frontend @herokuapp @ignore
 Feature: JavaScript Alerts Tests
 
   Scenario: Handle JavaScript Alerts

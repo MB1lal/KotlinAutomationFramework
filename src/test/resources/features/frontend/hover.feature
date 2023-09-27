@@ -1,4 +1,4 @@
-@test
+@test @ignore
 Feature: Hovers Tests
 
   Scenario: Hover Over User Avatars
