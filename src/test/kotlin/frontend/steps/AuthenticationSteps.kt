@@ -14,7 +14,6 @@ class AuthenticationSteps : BaseSteps() {
     fun navigateToAuthPage()  {
         logger.info("Navigating to authentication page")
         authenticationPage.navigateToAuthPage()
-        logger.debug("Browser: " + authenticationPage.driver.toString())
     }
 
     @When("I enter username {} and password {}")

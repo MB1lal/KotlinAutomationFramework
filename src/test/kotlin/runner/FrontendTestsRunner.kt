@@ -6,11 +6,10 @@ import org.junit.runner.RunWith
 
 @RunWith(CucumberWithSerenity::class)
 @CucumberOptions(
-    features = ["src/test/resources/features"],
-    tags = "@test and not @ignore",
-    glue = ["backend/steps"],
-    stepNotifications = true
+    features = ["src/test/resources/features/frontend"],
+    tags = "@test and not @ignore and @herokuapp",
+    glue = ["frontend.steps"]
 
 )
-class AllTestsRunner2 {
+class FrontendTestsRunner {
 }
