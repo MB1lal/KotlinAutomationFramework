@@ -13,9 +13,11 @@ class HerokuMainPage : PageObject() {
     @FindBy(linkText = "Form Authentication")
     private lateinit var loginPage: WebElement
 
-
     @FindBy(linkText = "Checkboxes")
     private lateinit var checkBoxesPage: WebElement
+
+    @FindBy(linkText = "Dropdown")
+    private lateinit var dropdownPage: WebElement
 
     init {
         org.openqa.selenium.support.PageFactory.initElements(this.driver, this)
@@ -27,6 +29,7 @@ class HerokuMainPage : PageObject() {
         when(pageName.lowercase(Locale.getDefault())) {
             "form authentication" -> loginPage.click()
             "checkboxes" -> checkBoxesPage.click()
+            "dropdown" -> dropdownPage.click()
             else -> throw IllegalArgumentException("Invalid page specified")
         }
     }
