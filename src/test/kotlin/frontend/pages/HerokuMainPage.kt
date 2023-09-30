@@ -19,17 +19,20 @@ class HerokuMainPage : PageObject() {
     @FindBy(linkText = "Dropdown")
     private lateinit var dropdownPage: WebElement
 
+    @FindBy(linkText = "Dynamic Loading")
+    private lateinit var dynamicLoading: WebElement
+
     init {
         org.openqa.selenium.support.PageFactory.initElements(this.driver, this)
     }
 
     fun navigateToPage(pageName: String) {
         this.open()
-        this.driver.manage().window().maximize()
         when(pageName.lowercase(Locale.getDefault())) {
             "form authentication" -> loginPage.click()
             "checkboxes" -> checkBoxesPage.click()
             "dropdown" -> dropdownPage.click()
+            "dynamic loading" -> dynamicLoading.click()
             else -> throw IllegalArgumentException("Invalid page specified")
         }
     }
