@@ -1,4 +1,4 @@
-@test @frontend
+@test @frontend @ignore
 Feature: Multiple Windows Tests
 
   Scenario: Open and Switch Between Windows

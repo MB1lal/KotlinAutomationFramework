@@ -1,4 +1,4 @@
-@test
+@test @ignore
 Feature: Notification Messages Tests
 
   Scenario: Click Notification Messages

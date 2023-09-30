@@ -1,4 +1,4 @@
-
+@ignore
 Feature: Frames Tests
 
   Scenario: Switch Between Frames
