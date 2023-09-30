@@ -10,11 +10,8 @@ import org.assertj.core.api.Assertions.assertThat
 class AuthenticationSteps : BaseSteps() {
 
     var authenticationPage = AuthenticationPage()
-    @Given("I am on the form authentication page")
-    fun navigateToAuthPage()  {
-        logger.info("Navigating to authentication page")
-        authenticationPage.navigateToAuthPage()
-    }
+
+    lateinit var herokuMainPageSteps: HerokuMainPageSteps
 
     @When("I enter username {} and password {}")
     fun enterUserPass(username: String, password: String) {
@@ -44,7 +41,8 @@ class AuthenticationSteps : BaseSteps() {
 
     @Given("I am logged in on the form authentication page")
     fun userIsAlreadyLoggedIn() {
-        navigateToAuthPage()
+        herokuMainPageSteps = HerokuMainPageSteps()
+        herokuMainPageSteps.navigateToXPage("form authentication")
         enterUserPass("tomsmith","SuperSecretPassword!")
         loginIsClicked()
     }

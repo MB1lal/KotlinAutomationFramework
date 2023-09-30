@@ -1,7 +1,6 @@
 package frontend.steps
 
 import frontend.pages.CheckboxesPage
-import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
 import org.assertj.core.api.Assertions.assertThat
@@ -11,13 +10,6 @@ import java.lang.AssertionError
 class CheckboxesSteps : BaseSteps() {
 
     private var checkboxesPage = CheckboxesPage()
-
-    @Given("I am on the checkboxes page")
-    fun navigateToCheckboxesPage() {
-        logger.info("Navigating to checkboxes page")
-        checkboxesPage.navigateToAuthPage()
-        logger.info("Navigated to checkboxes page")
-    }
 
     @When("I toggle the {} checkbox")
     fun toggleCheckbox(index: String) {
