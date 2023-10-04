@@ -15,7 +15,7 @@
     </Appenders>
 
     <Loggers>
-        <Logger name="backend.steps.BaseSteps" level="trace" additivity="false">
+        <Logger name="core.BaseSteps" level="trace" additivity="false">
             <AppenderRef ref="LogToConsole"/>
             <!--            <AppenderRef ref="LogToFile"/>-->
         </Logger>

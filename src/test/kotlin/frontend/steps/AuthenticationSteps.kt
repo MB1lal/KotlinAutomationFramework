@@ -1,5 +1,6 @@
 package frontend.steps
 
+import core.BaseSteps
 import frontend.pages.AuthenticationPage
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Given

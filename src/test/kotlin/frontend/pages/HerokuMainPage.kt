@@ -11,7 +11,7 @@ import java.util.Locale
 class HerokuMainPage : PageObject() {
 
     @FindBy(linkText = "Form Authentication")
-    private lateinit var loginPage: WebElement
+    private lateinit var formAuthentication: WebElement
 
     @FindBy(linkText = "Checkboxes")
     private lateinit var checkBoxesPage: WebElement
@@ -22,6 +22,9 @@ class HerokuMainPage : PageObject() {
     @FindBy(linkText = "Dynamic Loading")
     private lateinit var dynamicLoading: WebElement
 
+    @FindBy(xpath = "//*[text() = 'File Download']")
+    lateinit var fileDownload: WebElement
+
     init {
         org.openqa.selenium.support.PageFactory.initElements(this.driver, this)
     }
@@ -29,10 +32,18 @@ class HerokuMainPage : PageObject() {
     fun navigateToPage(pageName: String) {
         this.open()
         when(pageName.lowercase(Locale.getDefault())) {
-            "form authentication" -> loginPage.click()
+            "form authentication" -> formAuthentication.click()
             "checkboxes" -> checkBoxesPage.click()
             "dropdown" -> dropdownPage.click()
             "dynamic loading" -> dynamicLoading.click()
+            "download" -> fileDownload.click()
+            "upload" -> TODO()
+            "frames" -> TODO()
+            "hovers" -> TODO()
+            "JavaScript alerts" -> TODO()
+            "login" -> TODO()
+            "multiple windows" -> TODO()
+            "notification messages" -> TODO()
             else -> throw IllegalArgumentException("Invalid page specified")
         }
     }

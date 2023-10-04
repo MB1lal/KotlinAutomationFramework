@@ -1,4 +1,4 @@
-@test @ignore
+@test @frontend @herokuapp
 Feature: Hovers Tests
 
   Scenario: Hover Over User Avatars

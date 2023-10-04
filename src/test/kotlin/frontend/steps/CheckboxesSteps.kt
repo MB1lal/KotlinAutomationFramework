@@ -1,5 +1,6 @@
 package frontend.steps
 
+import core.BaseSteps
 import frontend.pages.CheckboxesPage
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When

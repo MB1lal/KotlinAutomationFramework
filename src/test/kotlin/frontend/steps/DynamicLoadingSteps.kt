@@ -1,5 +1,6 @@
 package frontend.steps
 
+import core.BaseSteps
 import frontend.pages.DynamicLoadingExample1Page
 import frontend.pages.DynamicLoadingExample2Page
 import frontend.pages.DynamicLoadingPage

@@ -1,6 +1,7 @@
 package backend.steps
 
 
+import core.BaseSteps
 import backend.models.store.PetStoreModel
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Given

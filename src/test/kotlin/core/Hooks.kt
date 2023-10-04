@@ -1,6 +1,5 @@
-package backend.steps
+package core
 
-import frontend.steps.BaseSteps
 import io.cucumber.java.Before
 import net.serenitybdd.cucumber.suiteslicing.SerenityTags
 

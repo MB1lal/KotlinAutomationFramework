@@ -1,4 +1,4 @@
-@test @ignore
+@test @frontend @herokuapp
 Feature: Notification Messages Tests
 
   Scenario: Click Notification Messages

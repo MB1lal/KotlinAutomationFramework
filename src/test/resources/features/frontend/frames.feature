@@ -1,4 +1,4 @@
-@ignore
+@test @frontend @herokuapp
 Feature: Frames Tests
 
   Scenario: Switch Between Frames

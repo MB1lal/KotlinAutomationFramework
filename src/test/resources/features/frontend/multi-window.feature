@@ -1,4 +1,4 @@
-@test @frontend @ignore
+@test @frontend @herokuapp
 Feature: Multiple Windows Tests
 
   Scenario: Open and Switch Between Windows

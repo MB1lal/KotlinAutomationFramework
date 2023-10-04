@@ -1,9 +1,10 @@
 package frontend.steps
 
+import core.BaseSteps
 import frontend.pages.HerokuMainPage
 import io.cucumber.java.en.Given
 
-class HerokuMainPageSteps :BaseSteps() {
+class HerokuMainPageSteps : BaseSteps() {
     private var herokuPage = HerokuMainPage()
 
     @Given("I am on the {} page")

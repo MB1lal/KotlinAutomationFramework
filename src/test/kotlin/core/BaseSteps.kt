@@ -1,4 +1,4 @@
-package backend.steps
+package core
 
 import backend.connectors.PetConnector
 import backend.connectors.PetStoreConnector
@@ -8,7 +8,6 @@ import backend.models.store.PetStoreModel
 import backend.models.users.UserModel
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.javafaker.Faker
-import core.EnvSerenity
 import io.restassured.response.Response
 import net.serenitybdd.core.Serenity
 import org.apache.logging.log4j.LogManager

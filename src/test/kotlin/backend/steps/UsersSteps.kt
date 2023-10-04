@@ -1,5 +1,6 @@
 package backend.steps
 
+import core.BaseSteps
 import backend.connectors.UserConnector
 import backend.models.users.UserModel
 import io.cucumber.java.en.And
