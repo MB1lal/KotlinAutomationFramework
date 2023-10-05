@@ -1,34 +1,44 @@
 package frontend.steps
 
 import core.BaseSteps
+import frontend.pages.FramesPage
+import frontend.pages.IFramePage
+import frontend.pages.NestedFramesPage
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
+import org.assertj.core.api.Assertions.assertThat
 
 class FramesSteps : BaseSteps() {
 
-    @When("I switch to the {} frame")
-    fun switchToXFrame(frameIndex: String) {
-        logger.info("Switching to $frameIndex frame")
-        when(frameIndex) {
-            "first" -> TODO()
-            "second" -> TODO()
-        }
+    val framesPage = FramesPage()
+    val iFramePage = IFramePage()
+    val nestedFramesPage = NestedFramesPage()
+
+    @When("I navigate to {} page")
+    fun navigateToXFramePage(framePage: String) {
+        logger.info("Switching to $framePage")
+        framesPage.navigateToXFramePage(framePage)
     }
 
-    @And("I interact with elements in the {} frame")
-    fun interactWithXFrameElement(frameIndex: String) {
-        logger.info("Interacting with $frameIndex elements")
-        when(frameIndex) {
-            "first" -> TODO()
-            "second" -> TODO()
-        }
+    @And("I write {}in iframe")
+    fun inputTextIntoIFrame(inputText: String) {
+        logger.info("Switching to iFrame")
+        iFramePage.switchToIFrame()
+        logger.info("Entering text into iFrame")
+        iFramePage.enterTextIntoContent(inputText)
     }
 
-    @Then("I should switch back to the main content")
-    fun verifyMainContentIsDisplayed() {
-        logger.info("Verifying user is switched to main content")
-        TODO()
+    @Then("iframe has the text {}")
+    fun verifyMainContentIsDisplayed(expectedText: String) {
+        logger.info("Verifying text of iFrame")
+        assertThat(iFramePage.getIFrameText()).`as`("Incorrect text").isEqualTo(expectedText)
+    }
+
+    @Then("{} frame has {} text")
+    fun verifyFrameTexts(frameIdentifier: String, expectedText: String) {
+        logger.info("Verifying $frameIdentifier has $expectedText text")
+        assertThat(nestedFramesPage.getFrameText(frameIdentifier)).isEqualTo(expectedText)
     }
 
 }

@@ -23,10 +23,13 @@ class HerokuMainPage : PageObject() {
     private lateinit var dynamicLoading: WebElement
 
     @FindBy(xpath = "//*[text() = 'File Download']")
-    lateinit var fileDownload: WebElement
+    lateinit var fileDownloadPage: WebElement
 
     @FindBy(xpath = "//*[text() = 'File Upload']")
-    lateinit var fileUpload: WebElement
+    lateinit var fileUploadPage: WebElement
+
+    @FindBy(xpath = "//*[text() = 'Frames']")
+    lateinit var framesPage: WebElement
 
     init {
         org.openqa.selenium.support.PageFactory.initElements(this.driver, this)
@@ -39,9 +42,9 @@ class HerokuMainPage : PageObject() {
             "checkboxes" -> checkBoxesPage.click()
             "dropdown" -> dropdownPage.click()
             "dynamic loading" -> dynamicLoading.click()
-            "file download" -> fileDownload.click()
-            "file upload" -> fileUpload.click()
-            "frames" -> TODO()
+            "file download" -> fileDownloadPage.click()
+            "file upload" -> fileUploadPage.click()
+            "frames" -> framesPage.click()
             "hovers" -> TODO()
             "javascript alerts" -> TODO()
             "login" -> TODO()
