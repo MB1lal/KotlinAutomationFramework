@@ -10,4 +10,11 @@ class Hooks : BaseSteps() {
         SerenityTags.create().tagScenarioWithBatchingInfo()
     }
 
+    @Before("@download")
+    fun clearDownloadedFiles() {
+        logger.info("Deleting downloads folder")
+        deleteDownloadsFolder()
+        logger.info("Downloads folder deleted")
+    }
+
 }

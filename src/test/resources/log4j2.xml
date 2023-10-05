@@ -19,7 +19,13 @@
             <AppenderRef ref="LogToConsole"/>
             <!--            <AppenderRef ref="LogToFile"/>-->
         </Logger>
-        <Logger name="frontend.steps.BaseSteps" level="trace" additivity="false">
+        <Logger name="core.BaseSteps" level="trace" additivity="false">
+            <AppenderRef ref="LogToConsole"/>
+        </Logger>
+        <Logger name="frontend.pages.FileDownloadPage" level="trace" additivity="false">
+            <AppenderRef ref="LogToConsole"/>
+        </Logger>
+        <Logger name="frontend.pages.FileDownloadPage" level="trace" additivity="false">
             <AppenderRef ref="LogToConsole"/>
         </Logger>
         <Root level="error">

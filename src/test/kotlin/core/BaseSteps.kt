@@ -8,6 +8,8 @@ import backend.models.store.PetStoreModel
 import backend.models.users.UserModel
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.javafaker.Faker
+import com.google.gson.Gson
+import frontend.models.DownloadedJson
 import io.restassured.response.Response
 import net.serenitybdd.core.Serenity
 import org.apache.logging.log4j.LogManager
@@ -20,6 +22,8 @@ import utils.SharedStateConstants.BACKEND.PET
 import utils.SharedStateConstants.BACKEND.USERS
 import java.io.File
 import java.io.IOException
+import java.nio.file.Files
+import java.nio.file.Paths
 import kotlin.random.Random
 
 
@@ -31,6 +35,8 @@ abstract class BaseSteps {
     private val petConnector = PetConnector()
 
     protected val logger: Logger = LogManager.getLogger(BaseSteps::class.java)
+
+    protected val downloadPath = System.getProperty("user.dir") + "/src/test-output/downloads/"
 
     @Throws(IOException::class)
     fun <T> getStaticBody(tClass: Class<T>?, path: String?): T {
@@ -158,6 +164,41 @@ abstract class BaseSteps {
     fun logoutUser() {
         userConnector.logoutUser()
         logger.info("User is logged out.")
+    }
+
+    fun deleteDownloadsFolder(path: String = downloadPath) {
+        val folder = File(path)
+
+        if (folder.exists()) {
+            if (folder.isDirectory) {
+                // Delete all files and subdirectories in the folder
+                folder.listFiles()?.forEach { file ->
+                    if (file.isDirectory) {
+                        deleteDownloadsFolder(file.absolutePath)
+                    } else {
+                        file.delete()
+                    }
+                }
+            }
+
+            // Delete the empty folder
+            folder.delete()
+            println("Folder deleted successfully.")
+        } else {
+            println("Folder does not exist.")
+        }
+    }
+
+    protected fun readJsonFile(filePath: String): String? {
+        return try {
+            String(Files.readAllBytes(Paths.get(filePath)))
+        } catch (e: Exception) {
+            null
+        }
+    }
+
+    protected fun parseJson(jsonString: String): DownloadedJson {
+        return Gson().fromJson(jsonString, DownloadedJson::class.java)
     }
 
 }
