@@ -1,4 +1,4 @@
-package steps.core
+package steps.base
 
 import steps.backend.connectors.PetConnector
 import steps.backend.connectors.PetStoreConnector

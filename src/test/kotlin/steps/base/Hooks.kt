@@ -1,4 +1,4 @@
-package steps.core
+package steps.base
 
 import io.cucumber.java.Before
 import net.serenitybdd.cucumber.suiteslicing.SerenityTags

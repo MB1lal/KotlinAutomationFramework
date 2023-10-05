@@ -1,6 +1,6 @@
-package steps.frontend.steps
+package steps.frontend.`step-definitions`
 
-import steps.core.BaseSteps
+import steps.base.BaseSteps
 import steps.frontend.pages.CheckboxesPage
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When

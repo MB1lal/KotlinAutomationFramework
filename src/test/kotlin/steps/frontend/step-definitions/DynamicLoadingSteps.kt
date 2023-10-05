@@ -1,6 +1,6 @@
-package steps.frontend.steps
+package steps.frontend.`step-definitions`
 
-import steps.core.BaseSteps
+import steps.base.BaseSteps
 import steps.frontend.pages.DynamicLoadingExample1Page
 import steps.frontend.pages.DynamicLoadingExample2Page
 import steps.frontend.pages.DynamicLoadingPage
