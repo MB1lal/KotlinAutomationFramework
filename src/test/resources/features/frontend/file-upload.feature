@@ -1,7 +1,7 @@
-@test @frontend @herokuapp @ignore
+@test @frontend @herokuapp @wip
 Feature: File Upload Tests
 
   Scenario: Upload a File
     Given I am on the file upload page
-    When I select a upload a file example.json
+    When I select a file to upload
     Then the file should be uploaded successfully

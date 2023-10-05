@@ -25,6 +25,9 @@ class HerokuMainPage : PageObject() {
     @FindBy(xpath = "//*[text() = 'File Download']")
     lateinit var fileDownload: WebElement
 
+    @FindBy(xpath = "//*[text() = 'File Upload']")
+    lateinit var fileUpload: WebElement
+
     init {
         org.openqa.selenium.support.PageFactory.initElements(this.driver, this)
     }
@@ -37,7 +40,7 @@ class HerokuMainPage : PageObject() {
             "dropdown" -> dropdownPage.click()
             "dynamic loading" -> dynamicLoading.click()
             "file download" -> fileDownload.click()
-            "file upload" -> TODO()
+            "file upload" -> fileUpload.click()
             "frames" -> TODO()
             "hovers" -> TODO()
             "javascript alerts" -> TODO()
