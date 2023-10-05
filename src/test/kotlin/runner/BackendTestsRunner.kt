@@ -8,8 +8,8 @@ import org.junit.runner.RunWith
 @CucumberOptions(
     features = ["src/test/resources/features/backend/"],
     tags = "@test and not @ignore and @backend",
-    glue = ["backend.steps"],
-    plugin = ["json:target/cucumber-report/cucumber.json"]
+    glue = ["steps"],
+    plugin = ["json:target/cucumber-report/backend-cucumber.json"]
 )
 class BackendTestsRunner {
 }

@@ -8,9 +8,10 @@ import org.junit.runner.RunWith
 @CucumberOptions(
     features = ["src/test/resources/features/frontend"],
     tags = "@test and not @ignore and @herokuapp",
-    glue = [""],
+    glue = ["steps"],
     dryRun = false,
-    stepNotifications = true
+    stepNotifications = true,
+    plugin = ["json:target/cucumber-report/frontend-cucumber.json"]
 )
 class FrontendTestsRunner {
 }

@@ -15,17 +15,17 @@
     </Appenders>
 
     <Loggers>
-        <Logger name="core.BaseSteps" level="trace" additivity="false">
+        <Logger name="steps.core.BaseSteps" level="trace" additivity="false">
             <AppenderRef ref="LogToConsole"/>
             <!--            <AppenderRef ref="LogToFile"/>-->
         </Logger>
-        <Logger name="core.BaseSteps" level="trace" additivity="false">
+        <Logger name="steps.core.BaseSteps" level="trace" additivity="false">
             <AppenderRef ref="LogToConsole"/>
         </Logger>
-        <Logger name="frontend.pages.FileDownloadPage" level="trace" additivity="false">
+        <Logger name="steps.frontend.pages.FileDownloadPage" level="trace" additivity="false">
             <AppenderRef ref="LogToConsole"/>
         </Logger>
-        <Logger name="frontend.pages.FileDownloadPage" level="trace" additivity="false">
+        <Logger name="steps.frontend.pages.FileDownloadPage" level="trace" additivity="false">
             <AppenderRef ref="LogToConsole"/>
         </Logger>
         <Root level="error">
