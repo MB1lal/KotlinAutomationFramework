@@ -1,16 +1,16 @@
 package steps.base
 
-import steps.backend.connectors.PetConnector
-import steps.backend.connectors.PetStoreConnector
-import steps.backend.connectors.UserConnector
-import steps.backend.models.pet.PetModel
-import steps.backend.models.store.PetStoreModel
-import steps.backend.models.users.UserModel
+import connectors.PetConnector
+import connectors.PetStoreConnector
+import connectors.UserConnector
+import models.pet.PetModel
+import models.store.PetStoreModel
+import models.users.UserModel
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.javafaker.Faker
 import com.google.gson.Gson
 import core.EnvSerenity
-import steps.frontend.models.DownloadedJson
+import models.DownloadedJson
 import io.restassured.response.Response
 import net.serenitybdd.core.Serenity
 import org.apache.logging.log4j.LogManager

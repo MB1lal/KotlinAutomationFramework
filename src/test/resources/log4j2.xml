@@ -22,10 +22,10 @@
         <Logger name="steps.base.BaseSteps" level="trace" additivity="false">
             <AppenderRef ref="LogToConsole"/>
         </Logger>
-        <Logger name="steps.frontend.pages.FileDownloadPage" level="trace" additivity="false">
+        <Logger name="pages.FileDownloadPage" level="trace" additivity="false">
             <AppenderRef ref="LogToConsole"/>
         </Logger>
-        <Logger name="steps.frontend.pages.FileDownloadPage" level="trace" additivity="false">
+        <Logger name="pages.FileDownloadPage" level="trace" additivity="false">
             <AppenderRef ref="LogToConsole"/>
         </Logger>
         <Root level="error">

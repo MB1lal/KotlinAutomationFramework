@@ -10,7 +10,7 @@ import org.junit.runner.RunWith
     tags = "@test and not @ignore and @herokuapp",
     glue = ["steps"],
     dryRun = false,
-    stepNotifications = true,
+    stepNotifications = false,
     plugin = ["json:target/cucumber-report/frontend-cucumber.json"]
 )
 class FrontendTestsRunner {

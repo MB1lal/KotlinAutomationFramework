@@ -1,4 +1,4 @@
-@test @frontend @herokuapp @wip
+@test @frontend @herokuapp
 Feature: File Upload Tests
 
   Scenario: Upload a File
