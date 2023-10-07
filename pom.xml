@@ -27,30 +27,6 @@
         </repository>
     </repositories>
 
-    <profiles>
-        <profile>
-            <id>useTheForks</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>3.1.2</version>
-                        <configuration>
-                            <includes>
-                                <include>**/AllTestsRunner*</include>
-                            </includes>
-                            <systemPropertyVariables>
-                                <serenity.fork.count>0${parallel.tests}</serenity.fork.count>
-                                <!--suppress UnresolvedMavenProperty -->
-                                <serenity.fork.number>0${surefire.forkNumber}</serenity.fork.number>
-                            </systemPropertyVariables>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
     <build>
         <sourceDirectory>src/test/kotlin</sourceDirectory>
         <testSourceDirectory>src/test/kotlin</testSourceDirectory>
@@ -68,7 +44,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>test-compile</id>
+                        <id>test</id>
                         <phase>test-compile</phase>
                         <goals>
                             <goal>test-compile</goal>
@@ -121,28 +97,11 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.1.2</version>
-                <configuration>
-                    <includes>
-                        <include>**.AllTestsRunner*</include>
-                    </includes>
-                    <parallel>both</parallel>
-                    <useUnlimitedThreads>true</useUnlimitedThreads>
-                    <threadCount>${parallel.tests}</threadCount>
-                    <forkCount>${parallel.tests}</forkCount>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+          <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-resources-plugin</artifactId>
+                  <version>3.3.1</version>
+          </plugin>
         </plugins>
     </build>
 
