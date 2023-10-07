@@ -4,8 +4,7 @@ import net.serenitybdd.annotations.DefaultUrl
 import net.thucydides.core.pages.PageObject
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
-import java.lang.IllegalArgumentException
-import java.util.Locale
+import java.util.*
 
 @DefaultUrl("page:herokuURL")
 class HerokuMainPage : PageObject() {
@@ -23,19 +22,25 @@ class HerokuMainPage : PageObject() {
     private lateinit var dynamicLoading: WebElement
 
     @FindBy(xpath = "//*[text() = 'File Download']")
-    lateinit var fileDownloadPage: WebElement
+    private lateinit var fileDownloadPage: WebElement
 
     @FindBy(xpath = "//*[text() = 'File Upload']")
-    lateinit var fileUploadPage: WebElement
+    private lateinit var fileUploadPage: WebElement
 
     @FindBy(xpath = "//*[text() = 'Frames']")
-    lateinit var framesPage: WebElement
+    private lateinit var framesPage: WebElement
 
     @FindBy(xpath = "//*[text() = 'Hovers']")
-    lateinit var hoversPage: WebElement
+    private lateinit var hoversPage: WebElement
 
     @FindBy(xpath = "//*[text() = 'JavaScript Alerts']")
-    lateinit var jsAlertsPage: WebElement
+    private lateinit var jsAlertsPage: WebElement
+
+    @FindBy(xpath = "//*[text() = 'Multiple Windows']")
+    private lateinit var multiWindowPage: WebElement
+
+    @FindBy(xpath = "//*[text() = 'Notification Messages']")
+    private lateinit var notificationsPage: WebElement
 
     init {
         org.openqa.selenium.support.PageFactory.initElements(this.driver, this)
@@ -53,9 +58,8 @@ class HerokuMainPage : PageObject() {
             "frames" -> framesPage.click()
             "hovers" -> hoversPage.click()
             "javascript alerts" -> jsAlertsPage.click()
-            "login" -> TODO()
-            "multiple windows" -> TODO()
-            "notification messages" -> TODO()
+            "multiple windows" -> multiWindowPage.click()
+            "notification messages" -> notificationsPage.click()
             else -> throw IllegalArgumentException("Invalid page specified")
         }
     }
