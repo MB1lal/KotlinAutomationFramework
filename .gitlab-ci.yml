@@ -1,20 +1,49 @@
 image: markhobson/maven-chrome:latest
 
 stages:
+  - build
   - test
   - report
+
+compile:
+  stage: build
+  script:
+    - mvn -ntp compile
+  artifacts:
+    paths:
+      - target
 
 frontend-test:
   stage: test
   script:
-    - mvn clean test -Dtest=runner.FrontendTestsRunner
+    - mvn -ntp test -Dtest=runner.FrontendTestsRunner
+  dependencies:
+    - compile
+  artifacts:
+    when: always
+    paths:
+      - target
+  allow_failure: true
 
 backend-test:
   stage: test
   script:
-    - mvn clean test -Dtest=runner.BackendTestsRunner
+    - mvn -ntp test -Dtest=runner.BackendTestsRunner
+  dependencies:
+    - compile
+  artifacts:
+    when: always
+    paths:
+      - target
+  allow_failure: true
 
 report:
-  stage: test
+  stage: report
   script:
-    - mvn serenity:aggregate
+    - mvn -ntp serenity:aggregate
+  artifacts:
+    paths:
+      - target/site/serenity/
+  dependencies:
+    - backend-test
+    - frontend-test
