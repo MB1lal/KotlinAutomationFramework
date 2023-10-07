@@ -1,46 +1,37 @@
 package steps.frontend
 
 import io.cucumber.java.en.And
-import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
+import org.assertj.core.api.Assertions.assertThat
+import pages.JSAlertPage
 import steps.base.BaseSteps
 
 class JSAlertSteps : BaseSteps() {
 
+    private val jsAlertPage = JSAlertPage()
+
     @When("I click the {} button of alert")
     fun clickJSAlertButton(buttonText: String) {
         logger.info("Clicking the $buttonText button")
-        when(buttonText) {
-            "Click for JS Alert" -> TODO()
-            "Click for JS Confirm" -> TODO()
-            "Click for JS Prompt" -> TODO()
-        }
-    }
-
-    @And("I should see a JavaScript {} dialog")
-    @Then("I should see a JavaScript alert")
-    fun verifyJSAlertIsDisplayed(alertType: String = "alert") {
-        logger.info("Verifying alert is displayed")
-        when(alertType) {
-            "alert" -> TODO()
-            "confirmation" -> TODO()
-            "prompt" -> TODO()
-        }
+        jsAlertPage.triggerJSAlert(buttonText)
     }
 
     @And("I interact as {} with the {}")
     fun interactWithAlerts(interaction: String, alertType: String) {
-        when(alertType) {
-            "alert" -> TODO()
-            "confirmation" -> TODO()
-            "prompt" -> TODO()
-        }
+        logger.info("Interacting with $alertType as $interaction")
+        jsAlertPage.interactWithAlert(interaction)
     }
 
     @And("I enter {} in the prompt")
     fun enterTextIntoPrompt(inputText: String) {
         logger.info("Entering $inputText into the prompt")
-        TODO()
+        jsAlertPage.enterTextIntoAlert(inputText)
+    }
+
+    @And("Result says {}")
+    fun verifyResultText(expectedText: String) {
+        logger.info("Verifying result text")
+        assertThat(jsAlertPage.getResultText()).isEqualTo(expectedText)
     }
 
 }

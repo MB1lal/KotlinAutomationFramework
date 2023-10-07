@@ -34,6 +34,9 @@ class HerokuMainPage : PageObject() {
     @FindBy(xpath = "//*[text() = 'Hovers']")
     lateinit var hoversPage: WebElement
 
+    @FindBy(xpath = "//*[text() = 'JavaScript Alerts']")
+    lateinit var jsAlertsPage: WebElement
+
     init {
         org.openqa.selenium.support.PageFactory.initElements(this.driver, this)
     }
@@ -49,7 +52,7 @@ class HerokuMainPage : PageObject() {
             "file upload" -> fileUploadPage.click()
             "frames" -> framesPage.click()
             "hovers" -> hoversPage.click()
-            "javascript alerts" -> TODO()
+            "javascript alerts" -> jsAlertsPage.click()
             "login" -> TODO()
             "multiple windows" -> TODO()
             "notification messages" -> TODO()
