@@ -1,0 +1,20 @@
+image: markhobson/maven-chrome:latest
+
+stages:
+  - test
+  - report
+
+frontend-test:
+  stage: test
+  script:
+    - mvn clean test -Dtest=runner.FrontendTestsRunner
+
+backend-test:
+  stage: test
+  script:
+    - mvn clean test -Dtest=runner.BackendTestsRunner
+
+report:
+  stage: test
+  script:
+    - mvn serenity:aggregate
